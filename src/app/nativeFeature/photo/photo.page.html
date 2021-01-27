@@ -1,0 +1,14 @@
+<section class="take">
+    <!--Condition : for get and post image -->
+    <ion-img role="button" color="secondary" class="image" (click)="onPickImage()" src="{{pathImg}}" *ngIf="pathImg  && !imgIsLoading"></ion-img>
+    <ion-spinner name="circles" color="secondary" *ngIf="imgIsLoading"></ion-spinner>
+
+    <!-- Condition : il n'est pas afficher; si image présenter-->
+    <ion-button color="secondary" class="ion-no-padding " (click)="onPickImage()" *ngIf="!pathImg">
+        <!-- class="ion-no-padding" -->
+        <ion-icon style="padding: 5px;" name="camera-sharp"></ion-icon>
+        <ion-label style="min-width: 5.625rem;" class="sm-size-x">-{{imgLabel}}-</ion-label>
+    </ion-button>
+</section>
+<!-- for select file -->
+<input type="file" accept="image/jpeg" *ngIf="usetakeFile" #takeFile (change)="onFileChosen($event)" />
